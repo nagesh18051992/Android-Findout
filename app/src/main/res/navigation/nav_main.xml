@@ -3,8 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@id/loginFragment"
+    app:startDestination="@id/permissionFragment"
     android:id="@+id/nav_main">
+
+    <fragment
+        android:id="@+id/permissionFragment"
+        android:label="PermissionFragment"
+        android:name="com.findout.ui.permission.PermissionFragment"
+        tools:layout="@layout/fragment_permissions"/>
 
     <fragment
         android:id="@+id/loginFragment"
