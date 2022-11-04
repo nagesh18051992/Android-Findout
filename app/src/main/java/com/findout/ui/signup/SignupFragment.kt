@@ -1,4 +1,4 @@
-package com.findout.ui.login
+package com.findout.ui.signup
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,16 +7,15 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.findout.databinding.FragmentLoginBinding
+import com.findout.databinding.FragmentSignupBinding
 import com.findout.utils.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class SignupFragment : Fragment() {
 
-    private val viewModel: LoginViewModel by viewModels()
-    private var _binding: FragmentLoginBinding? = null
+    private val viewModel: SignupViewModel by viewModels()
+    private var _binding:FragmentSignupBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,7 +23,7 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding =FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentSignupBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -53,4 +52,5 @@ class LoginFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

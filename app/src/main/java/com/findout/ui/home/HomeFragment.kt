@@ -1,22 +1,22 @@
-package com.findout.ui.login
+package com.findout.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import com.findout.databinding.FragmentLoginBinding
+import com.findout.databinding.FragmentHomeBinding
 import com.findout.utils.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private val viewModel: LoginViewModel by viewModels()
-    private var _binding: FragmentLoginBinding? = null
+    private val viewModel:HomeViewModel by viewModels()
+    private var _binding:FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,9 +24,10 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding =FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
