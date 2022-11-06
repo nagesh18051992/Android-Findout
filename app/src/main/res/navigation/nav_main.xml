@@ -10,19 +10,34 @@
         android:id="@+id/permissionFragment"
         android:label="PermissionFragment"
         android:name="com.findout.ui.permission.PermissionFragment"
-        tools:layout="@layout/fragment_permissions"/>
+        tools:layout="@layout/fragment_permissions">
+        <action
+            android:id="@+id/action_permissionFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_permissionFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
         android:label="LoginFragment"
         android:name="com.findout.ui.login.LoginFragment"
-        tools:layout="@layout/fragment_login"/>
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/signUpFragment"
         android:label="SignupFragment"
         android:name="com.findout.ui.signup.SignupFragment"
-        tools:layout="@layout/fragment_signup"/>
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/action_signUpFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/homeFragment"

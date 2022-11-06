@@ -1,12 +1,12 @@
 package com.findout.ui.splash
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.findout.databinding.ActivityLaunchBinding
 import com.findout.ui.main.MainActivity
-import com.findout.utils.Constants.LOGIN_SCREEN
 import com.findout.utils.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,7 +29,8 @@ class LaunchActivity : AppCompatActivity() {
     }
 
     private fun startSomeNextActivity(){
-        startActivity(MainActivity.newIntent(this,LOGIN_SCREEN))
+        val intent = Intent(applicationContext, MainActivity::class.java)
+        startActivity(intent)
         finish()
     }
 

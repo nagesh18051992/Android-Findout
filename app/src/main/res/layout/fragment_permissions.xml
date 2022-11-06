@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:id="@+id/ivPermissionInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_location" />
+
+    <TextView
+        android:id="@+id/tvPermissionTitle"
+        app:layout_constraintStart_toEndOf="@id/ivPermissionInfo"
+        app:layout_constraintTop_toTopOf="@id/ivPermissionInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="12dp"
+        android:paddingEnd="24dp"
+        android:layout_width="0dp"
+        android:textColor="@color/black"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/location_title"/>
+
+
+    <TextView
+        android:id="@+id/tvPermissionSubTitle"
+        app:layout_constraintStart_toStartOf="@id/tvPermissionTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvPermissionTitle"
+        app:layout_constraintEnd_toEndOf="@id/tvPermissionTitle"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:text="@string/location_desc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/agree"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:backgroundTint="@color/findout_color"
+        android:text="@string/agree_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">findout</string>
+    <string name="location_title">Location</string>
+    <string name="location_desc"> Our App collects and monitors the information about the location of your device to provide timely notifications about availability of services in your location, to reduce risk associated with your loan application and expedite current address and KYC validation process.</string>
+    <string name="agree_button">Agree and Continue</string>
 </resources>
