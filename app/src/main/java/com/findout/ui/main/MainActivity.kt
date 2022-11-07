@@ -30,7 +30,7 @@ class MainActivity : BaseActivity() {
         val graph = inflater.inflate(R.navigation.nav_main)
 
         if (hasPermissions(applicationContext,PermissionFragment.PERMISSIONS)){
-            graph.setStartDestination(R.id.loginFragment)
+            graph.setStartDestination(R.id.landingFragment)
         }else{
             graph.setStartDestination(R.id.permissionFragment)
         }

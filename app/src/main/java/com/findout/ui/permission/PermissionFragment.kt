@@ -47,7 +47,7 @@ class PermissionFragment : BaseFragment() {
         binding.agree.setOnClickListener {
             activity?.let {
                 if (hasPermissions(activity as Context, PERMISSIONS)) {
-                    login()
+                    landingPage()
                 } else {
                     permReqLauncher.launch(PERMISSIONS)
                 }
@@ -57,8 +57,8 @@ class PermissionFragment : BaseFragment() {
         bindObservers()
     }
 
-    private fun login(){
-        findNavController().navigate(R.id.action_permissionFragment_to_loginFragment)
+    private fun landingPage(){
+        findNavController().navigate(R.id.action_permissionFragment_to_landingFragment)
     }
 
     private fun bindObservers() {
@@ -80,7 +80,7 @@ class PermissionFragment : BaseFragment() {
     private val permReqLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
             val granted = permissions.entries.all { it.value }
             if (granted) {
-               login()
+               landingPage()
             }
     }
 

@@ -5,8 +5,12 @@
     <string name="agree_button">Agree and Continue</string>
     <string name="verify">Verify</string>
     <string name="ten_digit_phone_number">10 digit mobile number</string>
-    <string name="login">Login/Signup</string>
+    <string name="email_hint">Enter Email Address</string>
+    <string name="pincode_hint">Enter Pincode</string>
+    <string name="login">Login</string>
     <string name="terms">I agreed to Above permissions List</string>
     <string name="enter_your_mobile_number_to_proceed">Enter your mobile number to proceed</string>
+    <string name="signIn">SignIn</string>
+    <string name="signUp">SignUp</string>
 
 </resources>

@@ -2,85 +2,108 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/signup"
+    <TextView
+        android:id="@+id/tvLabelHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Signup"
-        android:textSize="26sp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/signUp"
+        android:textColor="@color/findout_color"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:fontFamily="sans-serif"/>
 
-    <EditText
-        android:id="@+id/name"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/mobileNo"
+        style="@style/Widget.App.TextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/signup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <EditText
-        android:id="@+id/phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <EditText
-        android:id="@+id/pincode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/ten_digit_phone_number"
         android:inputType="number"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMobileNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="10"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email"
+        style="@style/Widget.App.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/email_hint"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/mobileNo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pincode"
+        style="@style/Widget.App.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/pincode_hint"
+        android:inputType="number"
         app:layout_constraintTop_toBottomOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPincode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/agree"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:id="@+id/signUp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/white"
         app:backgroundTint="@color/findout_color"
-        android:text="Signup"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/signUp"
+        app:layout_constraintTop_toBottomOf="@+id/pincode"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
