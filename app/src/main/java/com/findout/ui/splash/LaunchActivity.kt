@@ -16,22 +16,16 @@ class LaunchActivity : AppCompatActivity() {
     private val viewModel: LaunchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val splashScreen = installSplashScreen()
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         val binding = ActivityLaunchBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel.init()
-        observeUI()
-        splashScreen.setKeepOnScreenCondition { true }
         startSomeNextActivity()
-        finish()
-
     }
 
     private fun startSomeNextActivity(){
         val intent = Intent(applicationContext, MainActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     private fun observeUI(){

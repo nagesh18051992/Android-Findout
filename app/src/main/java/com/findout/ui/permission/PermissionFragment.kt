@@ -44,22 +44,21 @@ class PermissionFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        activity?.let {
-            if (hasPermissions(activity as Context, PERMISSIONS)) {
-               login()
-            } else {
-                permReqLauncher.launch(
-                    PERMISSIONS
-                )
+        binding.agree.setOnClickListener {
+            activity?.let {
+                if (hasPermissions(activity as Context, PERMISSIONS)) {
+                    login()
+                } else {
+                    permReqLauncher.launch(PERMISSIONS)
+                }
             }
         }
-        permReqLauncher.launch(PERMISSIONS)
 
         bindObservers()
     }
 
     private fun login(){
-        findNavController().navigate(R.id.action_permissionFragment_to_signUpFragment)
+        findNavController().navigate(R.id.action_permissionFragment_to_loginFragment)
     }
 
     private fun bindObservers() {

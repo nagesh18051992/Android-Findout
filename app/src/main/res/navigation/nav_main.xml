@@ -11,9 +11,7 @@
         android:label="PermissionFragment"
         android:name="com.findout.ui.permission.PermissionFragment"
         tools:layout="@layout/fragment_permissions">
-        <action
-            android:id="@+id/action_permissionFragment_to_signUpFragment"
-            app:destination="@id/signUpFragment" />
+
         <action
             android:id="@+id/action_permissionFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
