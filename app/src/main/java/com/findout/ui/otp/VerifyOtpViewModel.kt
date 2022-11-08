@@ -1,8 +1,6 @@
 package com.findout.ui.otp
 
 import android.app.Application
-import android.text.Editable
-import android.text.TextWatcher
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
