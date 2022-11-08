@@ -1,34 +1,32 @@
-package com.findout.ui.login
+package com.findout.ui.otp
 
 import android.app.Dialog
 import android.content.DialogInterface
 import android.content.res.Resources
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.findout.R
-import com.findout.databinding.FragmentLoginBinding
+import androidx.lifecycle.Observer
+import com.findout.databinding.FragmentVerifyotpBinding
 import com.findout.models.UseModel
 import com.findout.utils.NetworkResult
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import dagger.hilt.android.AndroidEntryPoint
 
+class VerifyOtpFragment : BottomSheetDialogFragment() {
 
-@AndroidEntryPoint
-class LoginFragment : BottomSheetDialogFragment() {
-
-    private val viewModel: LoginViewModel by viewModels()
-    private var _binding:FragmentLoginBinding? = null
+    private val viewModel: VerifyOtpViewModel by viewModels()
+    private var _binding:FragmentVerifyotpBinding? = null
     private val binding get() = _binding!!
-
     private fun getDialogMargin() = resources.getDimension(R.dimen._8dp).toInt()
 
     companion object {
-        val TAG: String = LoginFragment::class.java.simpleName
+        val TAG: String = VerifyOtpFragment::class.java.simpleName
         fun newInstance(): DialogFragment {
-            return LoginFragment()
+            return VerifyOtpFragment()
         }
     }
 
@@ -54,7 +52,7 @@ class LoginFragment : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding =FragmentLoginBinding.inflate(inflater, container, false)
+        _binding =FragmentVerifyotpBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -70,11 +68,8 @@ class LoginFragment : BottomSheetDialogFragment() {
     }
 
     private fun setupClickListeners() {
-        binding.signIn.setOnClickListener {
-            val phoneNumber = binding.etMobileNo.text as String
-            val useModel=UseModel()
-            useModel.mobile=phoneNumber
-            viewModel.loginWithOtp(useModel)
+        binding.verify.setOnClickListener {
+           otpTextWatcher
         }
     }
 
@@ -101,5 +96,31 @@ class LoginFragment : BottomSheetDialogFragment() {
                 }
             }
         })
+    }
+
+
+    private var otpTextWatcher = object : TextWatcher {
+
+        override fun afterTextChanged(s: Editable?) {
+        }
+
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+        }
+
+        override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            s?.toString()?.let {
+                if (it.length == 6) {
+                    validateOtpLength(it)
+                }
+            }
+        }
+    }
+
+    fun validateOtpLength(otp: String) {
+        if (otp.length == 6) {
+            val useModel= UseModel()
+            useModel.otp=otp
+            viewModel.fetchVerifyOtp(useModel)
+        }
     }
 }

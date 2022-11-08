@@ -14,4 +14,10 @@ interface AppDetailsService {
 
     @POST("/addUser")
     suspend fun addUser(@Body userModel:UseModel?): Response<AppDetailsModelResponse>
+
+    @POST("/loginWithOtp")
+    suspend fun loginWithOtp(@Body userModel:UseModel?): Response<AppDetailsModelResponse>
+
+    @POST("/verifyOtp")
+    suspend fun verifyOtp(@Body userModel:UseModel?): Response<AppDetailsModelResponse>
 }

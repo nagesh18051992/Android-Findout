@@ -20,4 +20,8 @@ class UseModel {
     @SerializedName("email")
     @Expose
     var email: String? = null
+
+    @SerializedName("otp")
+    @Expose
+    var otp: String? = null
 }

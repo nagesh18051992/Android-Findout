@@ -54,4 +54,10 @@
         android:name="com.findout.ui.signup.SignupFragment"
         tools:layout="@layout/fragment_signup"/>
 
+    <fragment
+        android:id="@+id/verifyOtpFragment"
+        android:label="VerifyOtpFragment"
+        android:name="com.findout.ui.otp.VerifyOtpFragment"
+        tools:layout="@layout/fragment_signup"/>
+
 </navigation>

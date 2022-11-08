@@ -8,6 +8,11 @@
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/drawable/ic_findout_foreground.xml" value="0.2335" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2335" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/drawable/ic_logo.xml" value="0.2335" />
+        <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/font/font.xml" value="0.284086112283664" />
+        <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/font/fonts_certs.xml" value="0.284086112283664" />
+        <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/font/rajdhani_light.xml" value="0.28493035035880115" />
+        <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/font/sans_serif.xml" value="0.284086112283664" />
+        <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/font/source_sans_pro_extralight.xml" value="0.28493035035880115" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/activity_launch.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/activity_main.xml" value="0.32135416666666666" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/dialog_fragment_login.xml" value="0.26378794356562635" />
@@ -16,6 +21,8 @@
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/fragment_permissions.xml" value="0.3203125" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/fragment_signup.xml" value="0.32135416666666666" />
+        <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/fragment_verify_otp.xml" value="0.2629328772979906" />
+        <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/fragment_verifyotp.xml" value="0.2604474461798227" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/home_layout.xml" value="0.3203125" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/internet_error.xml" value="0.3203125" />
         <entry key="..\:/Users/shank/Videos/Android-Findout/app/src/main/res/layout/progress.xml" value="0.3203125" />

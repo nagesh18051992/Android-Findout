@@ -12,5 +12,7 @@
     <string name="enter_your_mobile_number_to_proceed">Enter your mobile number to proceed</string>
     <string name="signIn">SignIn</string>
     <string name="signUp">SignUp</string>
+    <string name="verifyOtp">VerifyOtp</string>
+    <string name="verify_mobile_number">Verify mobile number</string>
 
 </resources>
