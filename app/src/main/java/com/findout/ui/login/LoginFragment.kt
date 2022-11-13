@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.findout.R
 import com.findout.databinding.FragmentLoginBinding
+import com.findout.models.LoginOtpModel
 import com.findout.models.UseModel
 import com.findout.utils.NetworkResult
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -72,9 +73,9 @@ class LoginFragment : BottomSheetDialogFragment() {
     private fun setupClickListeners() {
         binding.signIn.setOnClickListener {
             val phoneNumber = binding.etMobileNo.text as String
-            val useModel=UseModel()
-            useModel.mobile=phoneNumber
-            viewModel.loginWithOtp(useModel)
+            val loginOtpModel=LoginOtpModel()
+            loginOtpModel.mobile=phoneNumber
+            viewModel.loginWithOtp(loginOtpModel)
         }
     }
 

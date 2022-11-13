@@ -1,10 +1,7 @@
 package com.findout.repository
 
 import com.findout.api.AppDetailsService
-import com.findout.models.AddUserModelResponse
-import com.findout.models.AppDetailsModel
-import com.findout.models.AppDetailsModelResponse
-import com.findout.models.UseModel
+import com.findout.models.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
@@ -20,9 +17,9 @@ class AppDetailRepository @Inject constructor(private val service: AppDetailsSer
         appUpdate
     }
 
-    suspend fun fetchLoginWithOtp(userModel: UseModel?): Response<AppDetailsModelResponse> = withContext(
+    suspend fun fetchLoginWithOtp(loginOtpModel: LoginOtpModel?): Response<LoginOtpDataModelResponse> = withContext(
         Dispatchers.IO) {
-        val loginWithOtp =service.loginWithOtp(userModel)
+        val loginWithOtp =service.loginWithOtp(loginOtpModel)
         loginWithOtp
     }
 
@@ -32,9 +29,9 @@ class AppDetailRepository @Inject constructor(private val service: AppDetailsSer
         addUser
     }
 
-    suspend fun fetchVerifyOtp(userModel: UseModel?): Response<AppDetailsModelResponse> = withContext(
+    suspend fun fetchVerifyOtp(verifyOtpModel:VerifyOtpModel?): Response<VerifyOtpModelResponse> = withContext(
         Dispatchers.IO) {
-        val verifyOtp =service.verifyOtp(userModel)
+        val verifyOtp =service.verifyOtp(verifyOtpModel)
         verifyOtp
     }
 }

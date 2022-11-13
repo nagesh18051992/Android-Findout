@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.findout.models.AppDetailsModelResponse
 import com.findout.models.UseModel
+import com.findout.models.VerifyOtpModel
+import com.findout.models.VerifyOtpModelResponse
 import com.findout.repository.AppDetailRepository
 import com.findout.utils.NetworkResult
 import com.findout.utils.hasInternetConnection
@@ -15,18 +17,18 @@ import javax.inject.Inject
 
 class VerifyOtpViewModel @Inject constructor(private val repository: AppDetailRepository, private val application: Application) : ViewModel() {
 
-    val appUpdate: MutableLiveData<NetworkResult<AppDetailsModelResponse?>> = MutableLiveData()
+    val appUpdate: MutableLiveData<NetworkResult<VerifyOtpModelResponse?>> = MutableLiveData()
 
     fun init(){
 
     }
 
-    fun fetchVerifyOtp(userModel: UseModel?){
+    fun fetchVerifyOtp(verifyOtpModel: VerifyOtpModel?){
         appUpdate.postValue(NetworkResult.Loading())
         viewModelScope.launch {
             try {
                 if (hasInternetConnection(application.applicationContext)) {
-                    val response = repository.fetchVerifyOtp(userModel)
+                    val response = repository.fetchVerifyOtp(verifyOtpModel)
                     appUpdate.postValue(NetworkResult.Success(response.body()))
                 } else
                     appUpdate.postValue(NetworkResult.Error("No Internet Connection"))

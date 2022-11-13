@@ -13,6 +13,7 @@ import com.findout.R
 import androidx.lifecycle.Observer
 import com.findout.databinding.FragmentVerifyotpBinding
 import com.findout.models.UseModel
+import com.findout.models.VerifyOtpModel
 import com.findout.utils.NetworkResult
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -118,9 +119,11 @@ class VerifyOtpFragment : BottomSheetDialogFragment() {
 
     fun validateOtpLength(otp: String) {
         if (otp.length == 6) {
-            val useModel= UseModel()
-            useModel.otp=otp
-            viewModel.fetchVerifyOtp(useModel)
+            val verifyOtpModel=VerifyOtpModel()
+            verifyOtpModel.userId=""
+            verifyOtpModel.otp=otp
+
+            viewModel.fetchVerifyOtp(verifyOtpModel)
         }
     }
 }
