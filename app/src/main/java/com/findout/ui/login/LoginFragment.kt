@@ -72,7 +72,7 @@ class LoginFragment : BottomSheetDialogFragment() {
 
     private fun setupClickListeners() {
         binding.signIn.setOnClickListener {
-            val phoneNumber = binding.etMobileNo.text as String
+            val phoneNumber = binding.etMobileNo.text.toString()
             val loginOtpModel=LoginOtpModel()
             loginOtpModel.mobile=phoneNumber
             viewModel.loginWithOtp(loginOtpModel)

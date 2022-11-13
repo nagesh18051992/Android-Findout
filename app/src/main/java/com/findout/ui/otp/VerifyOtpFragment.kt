@@ -12,7 +12,6 @@ import androidx.fragment.app.viewModels
 import com.findout.R
 import androidx.lifecycle.Observer
 import com.findout.databinding.FragmentVerifyotpBinding
-import com.findout.models.UseModel
 import com.findout.models.VerifyOtpModel
 import com.findout.utils.NetworkResult
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

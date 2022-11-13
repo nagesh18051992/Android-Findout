@@ -4,8 +4,6 @@ import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.findout.models.AppDetailsModelResponse
-import com.findout.models.UseModel
 import com.findout.models.VerifyOtpModel
 import com.findout.models.VerifyOtpModelResponse
 import com.findout.repository.AppDetailRepository
