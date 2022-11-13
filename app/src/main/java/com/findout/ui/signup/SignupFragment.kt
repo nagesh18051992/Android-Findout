@@ -10,8 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.findout.R
 import com.findout.databinding.FragmentSignupBinding
+import com.findout.models.UseModel
 import com.findout.utils.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class SignupFragment : DialogFragment() {
@@ -57,21 +59,22 @@ class SignupFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bindObservers()
         setupClickListeners()
+        bindObservers()
     }
 
     private fun bindObservers() {
         viewModel.appUpdate.observe(viewLifecycleOwner, Observer {
             when(it) {
                 is NetworkResult.Success -> {
-
+                    dismiss()
+                    Timber.d(it.message)
                 }
                 is NetworkResult.Error -> {
-
+                    Timber.d("error")
                 }
                 is NetworkResult.Loading -> {
-
+                    Timber.d("loading")
                 }
             }
         })
@@ -79,9 +82,20 @@ class SignupFragment : DialogFragment() {
 
     private fun setupClickListeners() {
         binding.signUp.setOnClickListener {
-            dismiss()
+            val phoneNumber = binding.etMobileNo.text.toString()
+            val email = binding.etEmail.text.toString()
+            val pincode = binding.etPincode.text.toString()
+            val name=binding.etName.text.toString()
+            val useModel= UseModel()
+            useModel.mobile=phoneNumber
+            useModel.email=email
+            useModel.pincode=pincode
+            useModel.name=name
+            viewModel.addUser(useModel)
         }
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

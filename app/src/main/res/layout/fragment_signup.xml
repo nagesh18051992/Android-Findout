@@ -18,6 +18,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:fontFamily="sans-serif"/>
 
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name"
+        style="@style/Widget.App.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/name_hint"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/mobileNo"
         style="@style/Widget.App.TextInputLayout"
@@ -28,7 +52,7 @@
         android:layout_marginEnd="40dp"
         android:hint="@string/ten_digit_phone_number"
         android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/tvLabelHeader"
+        app:layout_constraintTop_toBottomOf="@+id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -85,7 +109,8 @@
             android:id="@+id/etPincode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:maxLength="6"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 

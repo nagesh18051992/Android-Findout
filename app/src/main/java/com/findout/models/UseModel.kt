@@ -25,3 +25,13 @@ class UseModel {
     @Expose
     var otp: String? = null
 }
+
+data class AddUserModelResponse (
+    @SerializedName("name"    ) var name    : String? = null,
+    @SerializedName("email"   ) var email   : String? = null,
+    @SerializedName("pincode" ) var pincode : Int?    = null,
+    @SerializedName("mobile"  ) var mobile  : Int?    = null,
+    @SerializedName("_id"     ) var Id      : String? = null,
+    @SerializedName("date"    ) var date    : String? = null,
+    @SerializedName("__v"     ) var _v      : Int?    = null
+)

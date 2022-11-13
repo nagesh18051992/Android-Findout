@@ -50,13 +50,21 @@
         android:id="@+id/verifyLoginOtpView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        app:itemCount="4"
+        android:maxLength="4"
         android:layout_margin="20dp"
-        android:gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvLabelMobile"
-        app:lineColor="@android:color/black"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@null"
+        android:cursorVisible="false"
+        android:digits="1234567890"
+        android:gravity="center_vertical"
+        android:inputType="number"
+        app:pinAnimationType="fromBottom"
+        app:pinBackgroundDrawable="@drawable/bg_pin"
+        app:pinBackgroundIsSquare="true"
+        app:pinCharacterSpacing="8dp"
+        app:pinTextBottomPadding="28dp"/>
 
 
 

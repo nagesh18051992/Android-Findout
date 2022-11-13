@@ -1,6 +1,7 @@
 package com.findout.repository
 
 import com.findout.api.AppDetailsService
+import com.findout.models.AddUserModelResponse
 import com.findout.models.AppDetailsModel
 import com.findout.models.AppDetailsModelResponse
 import com.findout.models.UseModel
@@ -25,7 +26,7 @@ class AppDetailRepository @Inject constructor(private val service: AppDetailsSer
         loginWithOtp
     }
 
-    suspend fun fetchCreateUser(userModel: UseModel?): Response<AppDetailsModelResponse> = withContext(
+    suspend fun fetchCreateUser(userModel: UseModel?): Response<AddUserModelResponse> = withContext(
         Dispatchers.IO) {
         val addUser =service.addUser(userModel)
         addUser

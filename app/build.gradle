@@ -23,14 +23,14 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField 'String', 'BASE_URL', '"http://3.112.82.206:80/api/v1/"'
+            buildConfigField 'String', 'BASE_URL', '"http://54.168.239.242:8080/"'
             buildConfigField "long", "VERSION_CODE", "${defaultConfig.versionCode}"
         }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField 'String', 'BASE_URL', '"http://3.112.82.206:80/api/v1/"'
+            buildConfigField 'String', 'BASE_URL', '"http://54.168.239.242:8080/"'
             buildConfigField "long", "VERSION_CODE", "${defaultConfig.versionCode}"
         }
     }

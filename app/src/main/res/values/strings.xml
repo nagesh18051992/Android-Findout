@@ -14,5 +14,6 @@
     <string name="signUp">SignUp</string>
     <string name="verifyOtp">VerifyOtp</string>
     <string name="verify_mobile_number">Verify mobile number</string>
+    <string name="name_hint">Enter you Name</string>
 
 </resources>

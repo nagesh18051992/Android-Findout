@@ -1,5 +1,6 @@
 package com.findout.api
 
+import com.findout.models.AddUserModelResponse
 import com.findout.models.AppDetailsModel
 import com.findout.models.AppDetailsModelResponse
 import com.findout.models.UseModel
@@ -12,8 +13,8 @@ interface AppDetailsService {
     @POST("/users/appversion")
     suspend fun updateAppDetails(@Body appDetailsModel: AppDetailsModel?): Response<AppDetailsModelResponse>
 
-    @POST("/addUser")
-    suspend fun addUser(@Body userModel:UseModel?): Response<AppDetailsModelResponse>
+    @POST("/api/v1/addUser")
+    suspend fun addUser(@Body userModel:UseModel?): Response<AddUserModelResponse>
 
     @POST("/loginWithOtp")
     suspend fun loginWithOtp(@Body userModel:UseModel?): Response<AppDetailsModelResponse>
