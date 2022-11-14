@@ -1,54 +1,24 @@
 package com.findout.ui.login
 
-import android.app.Dialog
-import android.content.DialogInterface
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.findout.R
 import com.findout.databinding.FragmentLoginBinding
 import com.findout.models.LoginOtpModel
-import com.findout.models.UseModel
 import com.findout.utils.NetworkResult
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class LoginFragment : BottomSheetDialogFragment() {
+class LoginFragment : Fragment() {
 
     private val viewModel: LoginViewModel by viewModels()
     private var _binding:FragmentLoginBinding? = null
     private val binding get() = _binding!!
-
-    private fun getDialogMargin() = resources.getDimension(R.dimen._8dp).toInt()
-
-    companion object {
-        val TAG: String = LoginFragment::class.java.simpleName
-        fun newInstance(): DialogFragment {
-            return LoginFragment()
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val width = Resources.getSystem().displayMetrics.widthPixels
-        val marginInfo = 2 * getDialogMargin()
-        dialog?.window?.setLayout(width - marginInfo, ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog?.window?.setGravity(Gravity.BOTTOM)
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
-        dialog.setCanceledOnTouchOutside(false)
-        return dialog
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -79,20 +49,11 @@ class LoginFragment : BottomSheetDialogFragment() {
         }
     }
 
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
-        val activity = activity
-        if (activity is DialogInterface.OnDismissListener) {
-            (activity as DialogInterface.OnDismissListener).onDismiss(dialog)
-        }
-    }
-
-
     private fun bindObservers() {
         viewModel.appUpdate.observe(viewLifecycleOwner, Observer {
             when(it) {
                 is NetworkResult.Success -> {
-
+                    verifyPage()
                 }
                 is NetworkResult.Error -> {
 
@@ -102,5 +63,9 @@ class LoginFragment : BottomSheetDialogFragment() {
                 }
             }
         })
+    }
+
+    private fun verifyPage(){
+        findNavController().navigate(R.id.action_loginFragment_to_verifyOtpFragment)
     }
 }

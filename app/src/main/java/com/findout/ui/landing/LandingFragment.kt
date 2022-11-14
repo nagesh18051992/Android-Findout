@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.findout.R
 import com.findout.databinding.FragmentLandingBinding
 import com.findout.ui.base.BaseFragment
-import com.findout.ui.login.LoginFragment
-import com.findout.ui.signup.SignupFragment
 import com.findout.utils.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -34,19 +34,19 @@ class LandingFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         bindObservers()
          binding.signIn.setOnClickListener {
-             val fragment =LoginFragment.newInstance()
-             fragment.isCancelable = false
-             parentFragmentManager.let {
-                 fragment.show(it,LoginFragment.TAG)
-             }
+             signInPage()
          }
          binding.singUp.setOnClickListener {
-             val fragment = SignupFragment.newInstance()
-             fragment.isCancelable = false
-             parentFragmentManager.let {
-                 fragment.show(it,SignupFragment.TAG)
-             }
+             signUpPage()
          }
+    }
+
+    private fun signUpPage(){
+        findNavController().navigate(R.id.action_landingFragment_to_signUpFragment)
+    }
+
+    private fun signInPage(){
+        findNavController().navigate(R.id.action_landingFragment_to_signUpFragment)
     }
 
     private fun bindObservers() {

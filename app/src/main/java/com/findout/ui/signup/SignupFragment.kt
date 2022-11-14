@@ -1,13 +1,12 @@
 package com.findout.ui.signup
 
-import android.app.Dialog
 import android.content.DialogInterface
-import android.content.res.Resources
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.findout.R
 import com.findout.databinding.FragmentSignupBinding
 import com.findout.models.UseModel
@@ -16,37 +15,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class SignupFragment : DialogFragment() {
+class SignupFragment : Fragment() {
 
     private val viewModel: SignupViewModel by viewModels()
     private var _binding:FragmentSignupBinding? = null
     private val binding get() = _binding!!
-
-    private fun getDialogMargin() = resources.getDimension(R.dimen._8dp).toInt()
-
-    companion object {
-        val TAG: String = SignupFragment::class.java.simpleName
-        fun newInstance(): DialogFragment {
-            return SignupFragment()
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val width = Resources.getSystem().displayMetrics.widthPixels
-        val marginInfo = 2 * getDialogMargin()
-        dialog?.window?.setLayout(width - marginInfo, ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog?.window?.setGravity(Gravity.BOTTOM)
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
-        dialog.setCanceledOnTouchOutside(false)
-        return dialog
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -67,7 +40,7 @@ class SignupFragment : DialogFragment() {
         viewModel.appUpdate.observe(viewLifecycleOwner, Observer {
             when(it) {
                 is NetworkResult.Success -> {
-                    dismiss()
+                    verifyPage()
                     Timber.d(it.message)
                 }
                 is NetworkResult.Error -> {
@@ -78,6 +51,14 @@ class SignupFragment : DialogFragment() {
                 }
             }
         })
+    }
+
+    private fun verifyPage(){
+        findNavController().navigate(R.id.action_loginFragment_to_verifyOtpFragment)
+    }
+
+    private fun homePage(){
+        findNavController().navigate(R.id.action_verifyOtpFragment_to_homeFragment)
     }
 
     private fun setupClickListeners() {
@@ -100,15 +81,6 @@ class SignupFragment : DialogFragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
-        val activity = activity
-        if (activity is DialogInterface.OnDismissListener) {
-            (activity as DialogInterface.OnDismissListener).onDismiss(dialog)
-        }
     }
 
 }

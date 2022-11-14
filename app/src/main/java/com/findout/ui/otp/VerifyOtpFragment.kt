@@ -1,51 +1,24 @@
 package com.findout.ui.otp
 
-import android.app.Dialog
-import android.content.DialogInterface
-import android.content.res.Resources
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.findout.R
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.findout.R
 import com.findout.databinding.FragmentVerifyotpBinding
 import com.findout.models.VerifyOtpModel
 import com.findout.utils.NetworkResult
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class VerifyOtpFragment : BottomSheetDialogFragment() {
+
+class VerifyOtpFragment :Fragment() {
 
     private val viewModel: VerifyOtpViewModel by viewModels()
     private var _binding:FragmentVerifyotpBinding? = null
     private val binding get() = _binding!!
-    private fun getDialogMargin() = resources.getDimension(R.dimen._8dp).toInt()
-
-    companion object {
-        val TAG: String = VerifyOtpFragment::class.java.simpleName
-        fun newInstance(): DialogFragment {
-            return VerifyOtpFragment()
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        val width = Resources.getSystem().displayMetrics.widthPixels
-        val marginInfo = 2 * getDialogMargin()
-        dialog?.window?.setLayout(width - marginInfo, ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog?.window?.setGravity(Gravity.BOTTOM)
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = super.onCreateDialog(savedInstanceState)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
-        dialog.setCanceledOnTouchOutside(false)
-        return dialog
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -73,20 +46,12 @@ class VerifyOtpFragment : BottomSheetDialogFragment() {
         }
     }
 
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
-        val activity = activity
-        if (activity is DialogInterface.OnDismissListener) {
-            (activity as DialogInterface.OnDismissListener).onDismiss(dialog)
-        }
-    }
-
 
     private fun bindObservers() {
         viewModel.appUpdate.observe(viewLifecycleOwner, Observer {
             when(it) {
                 is NetworkResult.Success -> {
-
+                    homePage()
                 }
                 is NetworkResult.Error -> {
 
@@ -96,6 +61,10 @@ class VerifyOtpFragment : BottomSheetDialogFragment() {
                 }
             }
         })
+    }
+
+    private fun homePage(){
+        findNavController().navigate(R.id.action_verifyOtpFragment_to_homeFragment)
     }
 
 

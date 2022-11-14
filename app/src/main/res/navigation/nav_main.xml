@@ -26,17 +26,21 @@
         <action
             android:id="@+id/action_permissionFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
 
-    <dialog
+    <fragment
         android:id="@+id/loginFragment"
         android:label="LoginFragment"
         android:name="com.findout.ui.login.LoginFragment"
         tools:layout="@layout/fragment_login">
+
         <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </dialog>
+            android:id="@+id/action_loginFragment_to_verifyOtpFragment"
+            app:destination="@id/verifyOtpFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/signUpFragment"
@@ -44,20 +48,26 @@
         android:name="com.findout.ui.signup.SignupFragment"
         tools:layout="@layout/fragment_signup">
         <action
-            android:id="@+id/action_signUpFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_signUpFragment_to_verifyOtpFragment"
+            app:destination="@id/verifyOtpFragment" />
     </fragment>
+
+
 
     <fragment
         android:id="@+id/homeFragment"
         android:label="homeFragment"
-        android:name="com.findout.ui.signup.SignupFragment"
-        tools:layout="@layout/fragment_signup"/>
+        android:name="com.findout.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home"/>
 
     <fragment
         android:id="@+id/verifyOtpFragment"
         android:label="VerifyOtpFragment"
         android:name="com.findout.ui.otp.VerifyOtpFragment"
-        tools:layout="@layout/fragment_signup"/>
+        tools:layout="@layout/fragment_verifyotp">
+        <action
+            android:id="@+id/action_verifyOtpFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
 </navigation>
